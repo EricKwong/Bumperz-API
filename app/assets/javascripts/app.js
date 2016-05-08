@@ -18,7 +18,7 @@ console.log('app.js!!!');
 // }, 5000);
 
 $('#bggif').click(function() {
-  var audio = new Audio("my file");
+  var audio = new Audio("../audio/micro.mp3");
   audio.play();
   setTimeout(function() {
     responsiveVoice.speak("You are now entering into a medium accident zone.")
