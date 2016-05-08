@@ -10,7 +10,7 @@ class AccidentsController < ApplicationController
         zip_code = data["short_name"]
       end
     end
-    local_accidents = Accident.where(zip_code: zip_code)
+    local_accidents = Accident.within_year_and_zipcode(zip_code)
     accidents_within_radius = local_accidents.within_radius(200, latitude.to_f, longitude.to_f)
     accidents_length = accidents_within_radius.length
     if accidents_length > 100
