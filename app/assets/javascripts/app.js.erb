@@ -22,20 +22,14 @@ $('#bggif').click(function() {
   var audio = document.getElementById('micro');
   audio.play();
 
-  setTimeout(function() {
-    console.log("<%= asset_path('medium.mp3')%>")
-    audio.src = "<%= asset_path('medium.mp3')%>";
-    audio.play();
-    // responsiveVoice.speak("You are now entering into a medium accident zone.")
-    notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 4);
-  }, 5000);
+  audio.src = "<%= asset_path('medium.mp3')%>";
+  audio.play();
+  notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 4);
 
-  setTimeout(function() {
-    console.log("<%= asset_path('high.mp3')%>")
+  $('#bggif').unbind("click").click(function() {
     audio.src = "<%= asset_path('high.mp3')%>";
     audio.play();
-    // responsiveVoice.speak("You are now entering into a high accident zone.")
     notie.alert(3, 'Accident Warning: You are in an accident red zone.', 4);
-  }, 10000);
+  });
   
 });
