@@ -17,3 +17,11 @@ video#bgvid {
   bottom: 0;
   left: 0;
 }
+
+#bggif {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
