@@ -5,11 +5,11 @@ setInterval(function(){
     var longitude = position.coords.longitude;
     $.get('https://bumperz.herokuapp.com/accidents/warn_level', {latitude: latitude, longitude: longitude}).done(function(res) {
       if (res.warning == "yellow") {
-        notie.alert(2, 'Accident Warning: You are in an accident yellow zone.', 2);
+        notie.alert(2, 'Accident Warning: You are in an accident ' + res.warning + ' zone.', 2);
       } else if (res.warning == "orange") {
-        notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 2);
+        notie.alert(2, 'Accident Warning: You are in an accident ' + res.warning + ' zone.', 2);
       } else if (res.wanring == "red") {
-        notie.alert(3, 'Accident Warning: You are in an accident red zone.', 2);
+        notie.alert(3, 'Accident Warning: You are in an accident ' + res.warning + ' zone.', 2);
       }
     });
   });
