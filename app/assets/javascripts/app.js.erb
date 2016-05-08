@@ -23,15 +23,25 @@ $('#bggif').click(function() {
   audio.play();
   
   $('#bggif').unbind("click").click(function() {
-    audio.src = "<%= asset_path('medium.mp3')%>";
-    audio.play();
-    notie.alert(2, 'Accident Warning: You are now entering a medium accident zone', 4);
-
-    $('#bggif').unbind("click").click(function() {
-      audio.src = "<%= asset_path('high.mp3')%>";
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "<%= asset_path('medium.mp3')%>", true);
+    xhr.responseType = 'blob';
+    xhr.onload = function () {
+      audio.src = URL.createObjectURL(xhr.response);  
       audio.play();
-      notie.alert(3, 'Accident Warning: You are now entering a high accident zone', 4);
-    });
+      notie.alert(2, 'Accident Warning: You are now entering a medium accident zone', 4);
+      $('#bggif').unbind("click").click(function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', "<%= asset_path('high.mp3')%>", true);
+        xhr.responseType = 'blob';
+        xhr.onload = function () {
+          audio.src = URL.createObjectURL(xhr.response);  
+          audio.play();
+          notie.alert(3, 'Accident Warning: You are now entering a high accident zone', 4);
+        };
+        xhr.send();
+      });
+    };
+    xhr.send();
   });
-  
 });
