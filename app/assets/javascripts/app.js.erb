@@ -21,15 +21,17 @@ $('#bggif').click(function() {
 
   var audio = document.getElementById('micro');
   audio.play();
-
-  audio.src = "<%= asset_path('medium.mp3')%>";
-  audio.play();
-  notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 4);
-
+  
   $('#bggif').unbind("click").click(function() {
-    audio.src = "<%= asset_path('high.mp3')%>";
+    audio.src = "<%= asset_path('medium.mp3')%>";
     audio.play();
-    notie.alert(3, 'Accident Warning: You are in an accident red zone.', 4);
+    notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 4);
+
+    $('#bggif').unbind("click").click(function() {
+      audio.src = "<%= asset_path('high.mp3')%>";
+      audio.play();
+      notie.alert(3, 'Accident Warning: You are in an accident red zone.', 4);
+    });
   });
   
 });
