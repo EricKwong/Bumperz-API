@@ -1,5 +1,8 @@
 class AccidentsController < ApplicationController
 
+  def index
+  end
+
   def warn_level
     longitude = params[:longitude]
     latitude = params[:latitude]

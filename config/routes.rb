@@ -54,5 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root 'accidents#index'
+
   get 'accidents/warn_level' => 'accidents#warn_level'
 end
