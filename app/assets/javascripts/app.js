@@ -23,12 +23,16 @@ $('#bggif').click(function() {
   audio.play();
 
   setTimeout(function() {
-    responsiveVoice.speak("You are now entering into a medium accident zone.")
+    audio.src = 'assets/medium.mp3';
+    audio.play();
+    // responsiveVoice.speak("You are now entering into a medium accident zone.")
     notie.alert(2, 'Accident Warning: You are in an accident orange zone.', 4);
   }, 5000);
 
   setTimeout(function() {
-    responsiveVoice.speak("You are now entering into a high accident zone.")
+    audio.src = 'assets/high.mp3';
+    audio.play();
+    // responsiveVoice.speak("You are now entering into a high accident zone.")
     notie.alert(3, 'Accident Warning: You are in an accident red zone.', 4);
   }, 10000);
   
