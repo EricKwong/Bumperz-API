@@ -23,6 +23,7 @@ $('#bggif').click(function() {
   audio.play();
 
   setTimeout(function() {
+    console.log("<%= asset_path('medium.mp3')%>")
     audio.src = "<%= asset_path('medium.mp3')%>";
     audio.play();
     // responsiveVoice.speak("You are now entering into a medium accident zone.")
@@ -30,7 +31,8 @@ $('#bggif').click(function() {
   }, 5000);
 
   setTimeout(function() {
-    audio.src = "<%= asset_path('medium.mp3')%>";
+    console.log("<%= asset_path('high.mp3')%>")
+    audio.src = "<%= asset_path('high.mp3')%>";
     audio.play();
     // responsiveVoice.speak("You are now entering into a high accident zone.")
     notie.alert(3, 'Accident Warning: You are in an accident red zone.', 4);
